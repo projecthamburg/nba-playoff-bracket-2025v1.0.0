@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBA Playoff Bracket 2025</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    body {
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #17408B;
+    }
+    
+    .bracket {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    
+    .conference {
+      width: 48%;
+    }
+    
+    .conference-name {
+      text-align: center;
+      padding: 10px;
+      background-color: #17408B;
+      color: white;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    
+    .rounds {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .round {
+      width: 32%;
+    }
+    
+    .round-name {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #17408B;
+    }
+    
+    .matchup {
+      background-color: white;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .team {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .team:last-child {
+      border-bottom: none;
+    }
+    
+    .team.selected {
+      background-color: #C9082A;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .team-info {
+      display: flex;
+      align-items: center;
+    }
+    
+    .score {
+      font-weight: bold;
+      min-width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #17408B;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .team.selected .score {
+      background-color: white;
+      color: #C9082A;
+    }
+    
+    .seed {
+      background-color: #17408B;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+    
+    .finals {
+      margin-top: 30px;
+    }
+    
+    .finals-name {
+      text-align: center;
+      padding: 10px;
+      background-color: #C9082A;
+      color: white;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    
+    .finals .matchup {
+      width: 60%;
+      margin: 0 auto;
+    }
+    
+    .champion {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .champion-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #C9082A;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    
+    @media (max-width: 768px) {
+      .bracket {
+        flex-direction: column;
+      }
+      
+      .conference {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      
+      .finals .matchup {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NBA Playoff Bracket 2025</h1>
+    
+    <div class="bracket">
+      <div class="conference" id="east">
+        <div class="conference-name">Eastern Conference</div>
+        <div class="rounds">
+          <div class="round">
+            <div class="round-name">First Round</div>
+            <div class="matchup" data-round="1" data-matchup="1">
+              <div class="team selected" data-team-id="1" data-seed="1">
+                <div class="team-info">
+                  <div class="seed">1</div>
+                  <div class="team-name">Cleveland Cavaliers</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="8" data-seed="8">
+                <div class="team-info">
+                  <div class="seed">8</div>
+                  <div class="team-name">Atlanta Hawks</div>
+                </div>
+                <div class="score">1</div>
+              </div>
+            </div>
+            <div class="matchup" data-round="1" data-matchup="2">
+              <div class="team selected" data-team-id="4" data-seed="4">
+                <div class="team-info">
+                  <div class="seed">4</div>
+                  <div class="team-name">Milwaukee Bucks</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="5" data-seed="5">
+                <div class="team-info">
+                  <div class="seed">5</div>
+                  <div class="team-name">Indiana Pacers</div>
+                </div>
+                <div class="score">2</div>
+              </div>
+            </div>
+            <div class="matchup" data-round="1" data-matchup="3">
+              <div class="team selected" data-team-id="3" data-seed="3">
+                <div class="team-info">
+                  <div class="seed">3</div>
+                  <div class="team-name">New York Knicks</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="6" data-seed="6">
+                <div class="team-info">
+                  <div class="seed">6</div>
+                  <div class="team-name">Detroit Pistons</div>
+                </div>
+                <div class="score">2</div>
+              </div>
+            </div>
+            <div class="matchup" data-round="1" data-matchup="4">
+              <div class="team selected" data-team-id="2" data-seed="2">
+                <div class="team-info">
+                  <div class="seed">2</div>
+                  <div class="team-name">Boston Celtics</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="7" data-seed="7">
+                <div class="team-info">
+                  <div class="seed">7</div>
+                  <div class="team-name">Miami Heat</div>
+                </div>
+                <div class="score">0</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="round">
+            <div class="round-name">Conference Semifinals</div>
+            <div class="matchup" data-round="2" data-matchup="1">
+              <div class="team selected" data-team-id="1" data-seed="1">
+                <div class="team-info">
+                  <div class="seed">1</div>
+                  <div class="team-name">Cleveland Cavaliers</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="4" data-seed="4">
+                <div class="team-info">
+                  <div class="seed">4</div>
+                  <div class="team-name">Milwaukee Bucks</div>
+                </div>
+                <div class="score">3</div>
+              </div>
+            </div>
+            <div class="matchup" data-round="2" data-matchup="2">
+              <div class="team selected" data-team-id="2" data-seed="2">
+                <div class="team-info">
+                  <div class="seed">2</div>
+                  <div class="team-name">Boston Celtics</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="3" data-seed="3">
+                <div class="team-info">
+                  <div class="seed">3</div>
+                  <div class="team-name">New York Knicks</div>
+                </div>
+                <div class="score">1</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="round">
+            <div class="round-name">Conference Finals</div>
+            <div class="matchup" data-round="3" data-matchup="1">
+              <div class="team" data-team-id="1" data-seed="1">
+                <div class="team-info">
+                  <div class="seed">1</div>
+                  <div class="team-name">Cleveland Cavaliers</div>
+                </div>
+                <div class="score">2</div>
+              </div>
+              <div class="team selected" data-team-id="2" data-seed="2">
+                <div class="team-info">
+                  <div class="seed">2</div>
+                  <div class="team-name">Boston Celtics</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="conference" id="west">
+        <div class="conference-name">Western Conference</div>
+        <div class="rounds">
+          <div class="round">
+            <div class="round-name">First Round</div>
+            <div class="matchup" data-round="1" data-matchup="5">
+              <div class="team selected" data-team-id="9" data-seed="1">
+                <div class="team-info">
+                  <div class="seed">1</div>
+                  <div class="team-name">Oklahoma City Thunder</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="16" data-seed="8">
+                <div class="team-info">
+                  <div class="seed">8</div>
+                  <div class="team-name">Minnesota Timberwolves</div>
+                </div>
+                <div class="score">0</div>
+              </div>
+            </div>
+            <div class="matchup" data-round="1" data-matchup="6">
+              <div class="team selected" data-team-id="12" data-seed="4">
+                <div class="team-info">
+                  <div class="seed">4</div>
+                  <div class="team-name">Los Angeles Lakers</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="13" data-seed="5">
+                <div class="team-info">
+                  <div class="seed">5</div>
+                  <div class="team-name">Houston Rockets</div>
+                </div>
+                <div class="score">2</div>
+              </div>
+            </div>
+            <div class="matchup" data-round="1" data-matchup="7">
+              <div class="team" data-team-id="11" data-seed="3">
+                <div class="team-info">
+                  <div class="seed">3</div>
+                  <div class="team-name">Memphis Grizzlies</div>
+                </div>
+                <div class="score">3</div>
+              </div>
+              <div class="team selected" data-team-id="14" data-seed="6">
+                <div class="team-info">
+                  <div class="seed">6</div>
+                  <div class="team-name">Los Angeles Clippers</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+            </div>
+            <div class="matchup" data-round="1" data-matchup="8">
+              <div class="team" data-team-id="10" data-seed="2">
+                <div class="team-info">
+                  <div class="seed">2</div>
+                  <div class="team-name">Denver Nuggets</div>
+                </div>
+                <div class="score">3</div>
+              </div>
+              <div class="team selected" data-team-id="15" data-seed="7">
+                <div class="team-info">
+                  <div class="seed">7</div>
+                  <div class="team-name">Golden State Warriors</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="round">
+            <div class="round-name">Conference Semifinals</div>
+            <div class="matchup" data-round="2" data-matchup="3">
+              <div class="team selected" data-team-id="9" data-seed="1">
+                <div class="team-info">
+                  <div class="seed">1</div>
+                  <div class="team-name">Oklahoma City Thunder</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="12" data-seed="4">
+                <div class="team-info">
+                  <div class="seed">4</div>
+                  <div class="team-name">Los Angeles Lakers</div>
+                </div>
+                <div class="score">3</div>
+              </div>
+            </div>
+            <div class="matchup" data-round="2" data-matchup="4">
+              <div class="team selected" data-team-id="15" data-seed="7">
+                <div class="team-info">
+                  <div class="seed">7</div>
+                  <div class="team-name">Golden State Warriors</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="14" data-seed="6">
+                <div class="team-info">
+                  <div class="seed">6</div>
+                  <div class="team-name">Los Angeles Clippers</div>
+                </div>
+                <div class="score">2</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="round">
+            <div class="round-name">Conference Finals</div>
+            <div class="matchup" data-round="3" data-matchup="2">
+              <div class="team selected" data-team-id="9" data-seed="1">
+                <div class="team-info">
+                  <div class="seed">1</div>
+                  <div class="team-name">Oklahoma City Thunder</div>
+                </div>
+                <div class="score">4</div>
+              </div>
+              <div class="team" data-team-id="15" data-seed="7">
+                <div class="team-info">
+                  <div class="seed">7</div>
+                  <div class="team-name">Golden State Warriors</div>
+                </div>
+                <div class="score">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="finals">
+      <div class="finals-name">NBA Finals</div>
+      <div class="matchup" data-round="4" data-matchup="1">
+        <div class="team selected" data-team-id="2" data-seed="2">
+          <div class="team-info">
+            <div class="seed">2</div>
+            <div class="team-name">Boston Celtics</div>
+          </div>
+          <div class="score">4</div>
+        </div>
+        <div class="team" data-team-id="9" data-seed="1">
+          <div class="team-info">
+            <div class="seed">1</div>
+            <div class="team-name">Oklahoma City Thunder</div>
+          </div>
+          <div class="score">2</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="champion">
+      <div class="champion-name" id="champion">🏆 NBA Champions: Boston Celtics (Back-to-Back Champions)</div>
+    </div>
+  </div>
+</body>
+</html>
